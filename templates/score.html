@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩</title>
+    <style>
+                .c1 {
+                    margin: auto;
+                    width: 500px;
+                    height: 255px;
+                    padding-top: 47px;
+                }
+
+
+                #d2 {
+                    margin: auto;
+                    width: 500px;
+                    height: 235px;
+                    padding-top: 47px;
+                }
+    </style>
+</head>
+<body>
+{#<h1>得分： {{ score }}</h1>#}
+{#<p>正确的</p>#}
+{#{% for s_ti in success_li %}#}
+{#    <ul>#}
+{#        <li>{{ s_ti.id }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ s_ti.choice_text }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ s_ti.answer }}&nbsp;&nbsp;&nbsp;{{ s_ti.think }}</li>#}
+{#    </ul>#}
+{#{% endfor %}#}
+{##}
+{##}
+{#<p>错误的</p>#}
+{#{% for s_ti in error_li %}#}
+{#    <ul>#}
+{#        <li>{{ s_ti.id }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ s_ti.choice_text }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ s_ti.answer }}&nbsp;&nbsp;&nbsp;{{ s_ti.think }}</li>#}
+{#    </ul>#}
+{#{% endfor %}#}
+
+
+
+
+
+<h1 align="center">得分： {{ score }}</h1>
+
+    {% for success in success_li %}
+            <div class = 'c1'>
+                {{ forloop.counter }}
+                {{ success.choice_text }}
+                    <li> A :{{ success.a }}</li>
+                    <li> B :{{ success.b }}</li>
+                    <li> C :{{ success.c }}</li>
+                    <li> D :{{ success.d }}</li>
+                    {{ success.answer }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ a }}
+                    <p>解析：{{ success.think }}</p>
+                    <br><br><br><br><br><br>
+                    {#                    <select name = "d_{{ forloop.counter }}">#}
+                    {#                     <option value="A">A</option>#}
+                    {#                     <option value="B">B</option>#}
+                    {#                     <option value="C">C</option>#}
+                    {#                     <option value="D">D</option>#}
+                    {#                    </select>#}
+            </div>
+    {% endfor %}
+<hr>
+
+    {% for error in error_li %}
+            <div class = 'c1'>
+                {{ forloop.counter }}
+                {{ error.choice_text }}
+                    <li> A :{{ error.a }}</li>
+                    <li> B :{{ error.b }}</li>
+                    <li> C :{{ error.c }}</li>
+                    <li> D :{{ error.d }}</li>
+
+                    <p>{{ b }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正确答案:{{ error.answer }}</p>
+                    <p>解析：{{ error.think }}</p>
+                    <br><br><br><br><br><br>
+                    {#                    <select name = "d_{{ forloop.counter }}">#}
+                    {#                     <option value="A">A</option>#}
+                    {#                     <option value="B">B</option>#}
+                    {#                     <option value="C">C</option>#}
+                    {#                     <option value="D">D</option>#}
+                    {#                    </select>#}
+            </div>
+    {% endfor %}
+</body>
+</html>

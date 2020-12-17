@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+                .c1 {
+                    margin: auto;
+                    width: 500px;
+                    height: 255px;
+                    padding-top: 47px;
+                }
+    </style>
+</head>
+<body>
+{% if score %}
+    本次得分：{{ score }}
+{% endif %}
+
+<form action="{% url 'score' random_li %}" method="post">
+    {% for dic in choices %}
+        <div class = 'c1'>
+            {{ forloop.counter }}
+            {{ dic.choice_text }}
+                <li> A :{{ dic.a }}</li>
+                <li> B :{{ dic.b }}</li>
+                <li> C :{{ dic.c }}</li>
+                <li> D :{{ dic.d }}</li>
+
+                <select name = "d_{{ forloop.counter }}">
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                </select>
+        </div>
+
+    {% endfor %}
+ <input type="submit" value="提交">
+</form>
+
+</body>
+</html>
